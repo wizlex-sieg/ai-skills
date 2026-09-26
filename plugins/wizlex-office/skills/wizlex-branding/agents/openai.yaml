@@ -1,0 +1,6 @@
+interface:
+  display_name: "Wizlex Branding"
+  short_description: "Create consistent visuals with the official Wizlex logo"
+  default_prompt: "Use $wizlex-branding to create a branded asset with the current official Wizlex logo."
+  icon_large: "./assets/wizlex-logo-horizontal-color.svg"
+  brand_color: "#6E2C90"

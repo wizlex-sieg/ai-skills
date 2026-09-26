@@ -1,7 +1,7 @@
 {
   "name": "wizlex-office",
-  "version": "1.0.0",
-  "description": "Create Wizlex freelancer invoices and branded Word documents.",
+  "version": "1.1.0",
+  "description": "Create consistent Wizlex images, branded documents, and invoices with easy-to-use AI skills.",
   "author": {
     "name": "Wizlex"
   },
@@ -11,13 +11,16 @@
     "wizlex",
     "invoices",
     "documents",
-    "templates"
+    "templates",
+    "branding",
+    "logo",
+    "images"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Wizlex Office",
-    "shortDescription": "Wizlex invoices and branded documents",
-    "longDescription": "Generate PDF freelancer invoices with configurable billing placeholders and create Word documents using the Wizlex document template.",
+    "shortDescription": "Wizlex branding, documents, and invoices",
+    "longDescription": "Three reusable skills for everyday Wizlex work: create branded visuals with the official logo, format Word documents, and generate invoices with private billing inputs. Includes plain-language setup instructions.",
     "developerName": "Wizlex",
     "category": "Productivity",
     "capabilities": [
@@ -26,7 +29,8 @@
     "websiteURL": "https://github.com/wizlex-sieg/ai-skills",
     "defaultPrompt": [
       "Create a Wizlex invoice from my billing details.",
-      "Create a document using the Wizlex Document Format."
+      "Create a document using the Wizlex Document Format.",
+      "Create a Wizlex social post using the official logo."
     ]
   }
 }

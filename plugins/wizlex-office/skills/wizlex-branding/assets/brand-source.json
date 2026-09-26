@@ -1,0 +1,45 @@
+{
+  "website": "https://www.wizlex.com/",
+  "verified_at": "2026-09-26T03:10:05.485309+00:00",
+  "basis": "Official homepage header/footer logo and linked stylesheet; website observations, not a formal brand manual.",
+  "logo": {
+    "file": "assets/wizlex-logo-horizontal-color.svg",
+    "source_url": "https://cdn.prod.website-files.com/689d96ba2b48bedab74d4965/689d98e808abfa786df711d0_WIZLEX%20Logo%20Horizontal%20Color.svg",
+    "sha256": "e8cde093b8d3b2157ef0fbcf8687d3cd3109bf54f1363d474a1ca9e1ee9a16f7",
+    "view_box": [
+      0,
+      0,
+      1020.6,
+      144
+    ],
+    "colors": [
+      "#6E2C90",
+      "#D11A6E"
+    ],
+    "provenance": "Original downloaded SVG; no alterations."
+  },
+  "raster": {
+    "file": "assets/wizlex-logo-horizontal-color.png",
+    "sha256": "1909cfefc65a3a3f6ce108470fe2242d20aa293c5f3e1b7ffdf89341af91ad65",
+    "size": [
+      3062,
+      432
+    ],
+    "provenance": "Transparent raster conversion of the original SVG using Sharp; no generative editing."
+  },
+  "stylesheets": [
+    {
+      "url": "https://cdn.prod.website-files.com/689d96ba2b48bedab74d4965/css/wizlex-ver2.webflow.shared.1070c5d03.css",
+      "sha256": "667b4c24b1bd50a36f84fbe86c4bb52df8527b28b40776fbb9ca71370450d57a"
+    }
+  ],
+  "website_tokens": {
+    "font": "Satoshi, sans-serif",
+    "text": "#151515",
+    "background": "#FFFFFF",
+    "gray": "#EEEFF0",
+    "accent": "#D82480",
+    "accent2": "#882480",
+    "accent3": "#6C3094"
+  }
+}

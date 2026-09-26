@@ -1,73 +1,101 @@
-# Wizlex AI Skills
+# Wizlex AI Toolkit
 
-Two reusable skills, available together as the **Wizlex Office** Codex plugin or separately as individual skills.
+Make Wizlex-branded images, polished documents, and invoices by asking AI in plain English. **No coding knowledge is needed to use these skills.**
 
-| Skill | Purpose | Download |
+A **skill** is a reusable instruction pack that teaches Codex how to do a specific job. The **Wizlex Office plugin** bundles all three skills so you can install them together. These files are designed for the Codex desktop app; downloading a ZIP does not automatically install it in an ordinary ChatGPT conversation.
+
+## What can I make?
+
+| Tool | Use it for | Try asking |
 | --- | --- | --- |
-| [Wizlex Invoice Generator](plugins/wizlex-office/skills/wizlex-invoice-generator/SKILL.md) | Generate PDF freelancer invoices with user-provided billing details. | [Individual skill ZIP](packages/wizlex-invoice-generator.zip) |
-| [Wizlex Document Format](plugins/wizlex-office/skills/artifact-template-wizlex-document-format/SKILL.md) | Create branded Word documents using the retained reference template. | [Individual skill ZIP](packages/artifact-template-wizlex-document-format.zip) |
-| [Wizlex Office plugin](plugins/wizlex-office/.codex-plugin/plugin.json) | Both skills in one plugin. | [Plugin ZIP](packages/wizlex-office.zip) |
+| **Wizlex Branding** | Social posts, banners, presentation graphics, and other images with the real Wizlex logo | “Create a Wizlex LinkedIn image announcing our new service. Use the official logo.” |
+| **Wizlex Document Format** | Proposals, reports, and Word documents using the Wizlex template | “Turn this outline into a Wizlex project proposal.” |
+| **Wizlex Invoice Generator** | PDF invoices using billing details you provide privately | “Create a Wizlex invoice for this month's project work.” |
 
-## Install the plugin
+## Start here — no terminal commands
 
-With Codex CLI installed and Git authenticated to this private repository:
+1. Open the **Codex desktop app** and start a new task.
+2. Copy and paste this message:
+
+   > Install the Wizlex Office plugin from https://github.com/wizlex-sieg/ai-skills for me. It includes Wizlex Branding, Wizlex Document Format, and Wizlex Invoice Generator. Use the repository's installation instructions, check for existing installations to avoid duplicates, and help me complete any required GitHub sign-in. Do not replace unrelated plugins or change repository visibility.
+
+3. Follow any sign-in prompts shown by Codex. This repository is private, so your GitHub account needs access. If GitHub shows “404” or “Not Found,” ask the repository owner for access; you do not need to make the repository public. Never paste a password or access token into a chat.
+4. Once Codex confirms installation, **start a new task** and try a prompt from the table above.
+
+If you only want branding, paste this instead:
+
+> Use the skill installer to install only wizlex-branding from https://github.com/wizlex-sieg/ai-skills/tree/main/plugins/wizlex-office/skills/wizlex-branding. Check whether it is already installed before making changes. Then tell me how to try it in a new task.
+
+The document skill needs the separate **Documents plugin**. Image creation needs an image or design tool available in your Codex environment; the branding pack supplies the rules and logo, not an image-generation subscription. The invoice generator uses Python and ReportLab; Codex can check whether those are already available.
+
+## Downloads and manual setup
+
+Click a package below, then use GitHub's **Download raw file** button if it opens a file page. Extract the ZIP before installing it.
+
+| Package | Download | Instructions |
+| --- | --- | --- |
+| All three skills as one plugin | [Wizlex Office ZIP](packages/wizlex-office.zip) | Ask Codex to install the plugin using the prompt above |
+| Branding only | [Wizlex Branding ZIP](packages/wizlex-branding.zip) | [Read the skill](plugins/wizlex-office/skills/wizlex-branding/SKILL.md) |
+| Documents only | [Wizlex Document Format ZIP](packages/artifact-template-wizlex-document-format.zip) | [Read the skill](plugins/wizlex-office/skills/artifact-template-wizlex-document-format/SKILL.md) |
+| Invoices only | [Wizlex Invoice Generator ZIP](packages/wizlex-invoice-generator.zip) | [Read the skill](plugins/wizlex-office/skills/wizlex-invoice-generator/SKILL.md) |
+
+To install an individual skill manually, put its extracted folder inside your Codex skills folder. With a standard setup, that is `%USERPROFILE%\.codex\skills` on Windows or `~/.codex/skills` on Mac. If you configured `CODEX_HOME`, use its `skills` folder instead. Create the folder if necessary. Each installed skill folder must directly contain `SKILL.md` and its supporting folders. Back up an existing copy before replacing it, then start a new task. Install either the plugin or the individual skills to avoid duplicates.
+
+## The official Wizlex logo
+
+![Official Wizlex logo](plugins/wizlex-office/skills/wizlex-branding/assets/wizlex-logo-horizontal-color.png)
+
+- [Download the original SVG](plugins/wizlex-office/skills/wizlex-branding/assets/wizlex-logo-horizontal-color.svg) — best for design tools and sharp scaling.
+- [Download the transparent PNG](plugins/wizlex-office/skills/wizlex-branding/assets/wizlex-logo-horizontal-color.png) — for apps that do not accept SVG.
+- [Read the website-derived brand reference](plugins/wizlex-office/skills/wizlex-branding/references/brand-reference.md).
+
+The SVG was downloaded unchanged from the logo used on [Wizlex's official website](https://www.wizlex.com/). The PNG is a direct conversion, not a recreated logo. The branding skill checks the website at the start of each asset task and reports when it cannot verify the current branding. It does not run a background monitor. Website observations are distinguished from suggested layout defaults; this pack is not a substitute for a formal brand manual.
+
+For AI images, the skill creates the artwork and places the official logo afterward as an unchanged layer. It must never ask an image model to redraw the logo.
+
+## Keep personal information private
+
+The reusable invoice profile and document template contain placeholders. Provide actual names, contact details, addresses, and bank information only for the specific task, using private inputs outside this repository. Do not commit completed invoices or private profiles. Source documents, previews, and packaged archives have been sanitized.
+
+## Installation details for Codex or technical helpers
+
+With Codex CLI installed and Git authenticated to this repository:
 
 ```sh
 codex plugin marketplace add https://github.com/wizlex-sieg/ai-skills.git
 codex plugin add wizlex-office@personal
 ```
 
-The repository's marketplace identifier is `personal`. Start a new Codex task after installation to load the skills. If you already have a different marketplace named `personal`, use the individual skill installation below to avoid a name conflict.
+The repository's marketplace identifier is `personal`. If a different marketplace already uses that name, use the individual skill installation instead of replacing it. To use a local checkout, run `codex plugin marketplace add ./ai-skills` from its parent folder, then install `wizlex-office@personal`. The plugin ZIP contains the plugin; the repository also contains the marketplace manifest. Start a new task after installation or updates.
 
-You can also clone the repository and register the local checkout:
-
-```sh
-git clone https://github.com/wizlex-sieg/ai-skills.git
-codex plugin marketplace add ./ai-skills
-codex plugin add wizlex-office@personal
-```
-
-The plugin ZIP contains the plugin directory and its manifest. The repository checkout includes the marketplace manifest used by the commands above.
-
-## Install an individual skill
-
-Download the corresponding ZIP from the table, then extract its skill folder into `$CODEX_HOME/skills` (normally `~/.codex/skills`, or `%USERPROFILE%\.codex\skills` on Windows). Each extracted folder must contain `SKILL.md` directly. Back up any existing folder with the same name before replacing it. Start a new task after installation.
-
-Alternatively, ask Codex's skill installer to install one of these repository paths:
+Canonical individual skill paths:
 
 ```text
-plugins/wizlex-office/skills/wizlex-invoice-generator
+plugins/wizlex-office/skills/wizlex-branding
 plugins/wizlex-office/skills/artifact-template-wizlex-document-format
+plugins/wizlex-office/skills/wizlex-invoice-generator
 ```
 
-Both paths are complete, independent skill folders. Install either the plugin or the individual skills to avoid duplicate discovery.
-
-## Requirements and usage
-
-**Invoices:** Python 3.10 or later and ReportLab. If your runtime does not already include ReportLab, install the bundled requirements:
+Invoice requirements, when not already present:
 
 ```sh
 python -m pip install -r plugins/wizlex-office/skills/wizlex-invoice-generator/requirements.txt
 ```
 
-Example prompt: `Use $wizlex-invoice-generator to invoice Wizlex for the September project milestone: PHP 25,000, dated September 26, 2026.` The skill asks for missing billing data and calculates the total from line items. See its [input schema](plugins/wizlex-office/skills/wizlex-invoice-generator/references/input-schema.md) for direct script usage and profile overrides. PDF rendering and visual inspection require an available PDF renderer in the agent's environment.
+The branding checker uses Python 3.10+ with no third-party packages:
 
-**Documents:** The Codex Documents plugin is a separate prerequisite; it is not bundled here. The skill invokes that plugin's template workflow to edit and render the retained DOCX.
+```sh
+python plugins/wizlex-office/skills/wizlex-branding/scripts/check_brand.py
+```
 
-Example prompt: `Use $artifact-template-wizlex-document-format to create a project proposal from this outline.`
+It reports `unchanged`, `review_required`, or `unverified`; it never replaces files automatically. Website inspection is still required. See [official plugin packaging documentation](https://developers.openai.com/plugins/build/plugins) for the marketplace mechanism.
 
-## Retained assets
+## Maintaining the toolkit
 
-The invoice layout and Wizlex document styling are retained, with personal information replaced by placeholders. The invoice reference uses fictional sample billing data. The Word reference uses placeholder content, author, address, and contact fields; embedded custom XML, discarded content, metadata, and the original thumbnail have been removed. The preview is regenerated from the sanitized document.
-
-Before making a real invoice, supply all billing and bank fields through a private input JSON outside the repository. Never commit completed invoices, private profiles, or real bank details. The document skill likewise requires user-provided content and contact information for each output.
-
-## Build the packages
-
-The canonical skill sources live under `plugins/wizlex-office/skills/`, so the plugin and standalone archives share the same files.
+Edit the canonical sources in `plugins/wizlex-office/skills/`, then run:
 
 ```sh
 python scripts/build_packages.py
 ```
 
-This regenerates the three ZIP files under `packages/` and their SHA-256 checksums. Python bytecode and cache directories are excluded.
+This rebuilds the combined plugin ZIP, all individual skill ZIPs, and SHA-256 checksums in `packages/`. Python caches are excluded. When updating the brand assets, use the current official download, regenerate the PNG without altering the logo, and update the source URLs, hashes, and verification date in `assets/brand-source.json` inside the branding skill.
