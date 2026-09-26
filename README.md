@@ -2,7 +2,9 @@
 
 Make Wizlex-branded images, polished documents, and invoices by asking AI in plain English. **No coding knowledge is needed to use these skills.**
 
-A **skill** is a reusable instruction pack that teaches Codex how to do a specific job. The **Wizlex Office plugin** bundles all three skills so you can install them together. These files are designed for the Codex desktop app; downloading a ZIP does not automatically install it in an ordinary ChatGPT conversation.
+A **skill** is a reusable instruction pack that teaches an AI agent how to do a specific job. The **Wizlex Office plugin** bundles all three skills for **Codex and Claude Code**. Individual skill ZIPs can also be installed in **Cursor, GitHub Copilot, and other agents supporting the Agent Skills format**. Downloading a ZIP does not automatically install it in an ordinary chatbot conversation.
+
+**Choose your app:** [Codex setup](#start-here--no-terminal-commands) · [Claude Code setup](#claude-code) · [Cursor, Copilot, and other agents](#cursor-github-copilot-and-other-agents)
 
 ## What can I make?
 
@@ -26,7 +28,45 @@ If you only want branding, paste this instead:
 
 > Use the skill installer to install only wizlex-branding from https://github.com/wizlex-sieg/ai-skills/tree/main/plugins/wizlex-office/skills/wizlex-branding. Check whether it is already installed before making changes. Then tell me how to try it in a new task.
 
-The document skill needs the separate **Documents plugin**. Image creation needs an image or design tool available in your Codex environment; the branding pack supplies the rules and logo, not an image-generation subscription. The invoice generator uses Python and ReportLab; Codex can check whether those are already available.
+For documents, Codex can use its **Documents plugin**; other agents can use their document tools or the included portable workflow. Image creation needs an image or design tool available in your environment; the branding pack supplies the rules and logo, not an image-generation subscription. The invoice generator uses Python and ReportLab. Your agent can check which tools are available.
+
+## Claude Code
+
+Open Claude Code and enter these two commands, one at a time:
+
+```text
+/plugin marketplace add wizlex-sieg/ai-skills
+/plugin install wizlex-office@wizlex-ai-skills
+```
+
+Complete the installation in Claude Code's plugin panel if prompted, then start a new session. Your GitHub account must have access to this private repository. Try: “Use the Wizlex Branding skill to create a LinkedIn banner with the official logo.”
+
+Prefer asking the agent to handle setup? Paste:
+
+> Install the Wizlex Office plugin from the wizlex-sieg/ai-skills GitHub repository using its Claude Code marketplace. Check for existing installations first, help me complete any required GitHub sign-in, and tell me which document and image tools are available. Do not replace unrelated plugins or change repository visibility.
+
+The combined plugin ZIP contains both Codex and Claude Code manifests. For a downloaded and extracted plugin, technical users can load it locally with `claude --plugin-dir ./wizlex-office`. The repository's `.claude-plugin/marketplace.json` supplies the GitHub marketplace; it is separate from the plugin ZIP.
+
+## Cursor, GitHub Copilot, and other agents
+
+Download an individual skill ZIP below and extract the **whole skill folder**, including `assets`, `references`, and `scripts`. Copy it into the appropriate folder in the project where you want to use it:
+
+| Agent | Project skill folder | Installation type |
+| --- | --- | --- |
+| Claude Code | `.claude/skills/` | Individual skill alternative to the plugin |
+| Cursor | `.cursor/skills/` | Individual skills |
+| GitHub Copilot | `.github/skills/` | Individual skills |
+| Other Agent Skills-compatible agents | The location documented by that agent | Individual skills; discovery and tooling vary |
+
+For example, Cursor should see `.cursor/skills/wizlex-branding/SKILL.md`, with the logo assets inside that same skill folder. Start a new agent session and ask it to use the skill by name. Codex's `$skill-name` spelling in optional UI metadata is not required in other agents; natural-language skill names work where the host supports skill discovery. `agents/openai.yaml` is optional Codex UI metadata, not a runtime dependency.
+
+You can also ask your agent: “Install the three skills from `plugins/wizlex-office/skills` in https://github.com/wizlex-sieg/ai-skills into this project's supported skills folder. Preserve the complete folders and check for existing copies first.”
+
+These packages provide instructions and assets. Each host still needs browsing for current brand verification, Python 3.10+ and ReportLab for invoice generation, and suitable editing/rendering tools for documents or images. An agent without image generation can still supply the official logo or prepare layout instructions. If it cannot browse or render, the skills require it to disclose that limitation rather than claim a verified result.
+
+The manifests and portable folders are validated locally. Full end-to-end execution in Claude Code, Cursor, and Copilot has not been tested in this environment. Compatibility is based on their documented plugin/skill formats, not a claim that every host supplies the same tools.
+
+Official setup references: [Claude Code marketplaces](https://code.claude.com/docs/en/plugin-marketplaces), [Claude Code plugin layout](https://code.claude.com/docs/en/plugins-reference), [Cursor skills](https://cursor.com/docs/skills), and [GitHub Copilot skills](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills).
 
 ## Downloads and manual setup
 

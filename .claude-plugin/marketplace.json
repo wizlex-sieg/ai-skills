@@ -1,0 +1,11 @@
+{
+  "name": "wizlex-ai-skills",
+  "owner": { "name": "Wizlex" },
+  "plugins": [
+    {
+      "name": "wizlex-office",
+      "source": "./plugins/wizlex-office",
+      "description": "Wizlex branding with the official logo, Word templates, and PDF invoices."
+    }
+  ]
+}

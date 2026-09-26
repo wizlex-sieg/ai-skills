@@ -1,0 +1,9 @@
+{
+  "name": "wizlex-office",
+  "version": "1.2.0",
+  "description": "Create Wizlex visuals with the official logo, branded Word documents, and PDF invoices.",
+  "author": { "name": "Wizlex" },
+  "homepage": "https://github.com/wizlex-sieg/ai-skills",
+  "repository": "https://github.com/wizlex-sieg/ai-skills",
+  "keywords": ["wizlex", "branding", "documents", "invoices"]
+}
