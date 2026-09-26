@@ -1,0 +1,26 @@
+{
+  "currency_code": "PHP",
+  "amount_column_label": "Amount (PHP)",
+  "client": {
+    "name": "Wizlex Inc",
+    "address_lines": [
+      "[Client address line 1]",
+      "[Client address line 2]"
+    ]
+  },
+  "freelancer": {
+    "name": "[Freelancer name]",
+    "role": "[Freelancer role]",
+    "address_lines": [
+      "[Freelancer address]"
+    ],
+    "email": "freelancer@example.com"
+  },
+  "payment": {
+    "method": "Bank Transfer - [Bank name]",
+    "account_name": "[Account holder name]",
+    "account_number": "[Account number]",
+    "swift_code": "[SWIFT code]"
+  },
+  "disclaimer": "This invoice is issued by an independent freelance contractor and is not an official receipt."
+}

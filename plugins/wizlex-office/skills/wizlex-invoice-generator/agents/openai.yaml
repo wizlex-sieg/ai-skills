@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wizlex Invoice Generator"
+  short_description: "Create consistent freelancer invoices for Wizlex"
+  default_prompt: "Use $wizlex-invoice-generator to create a Wizlex freelancer invoice from my billing details and line items."
